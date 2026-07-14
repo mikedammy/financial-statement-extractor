@@ -123,7 +123,7 @@ outputs/
 ```bash
 git clone https://github.com/YOUR_USERNAME/financial-report-flow.git
 cd financial-report-flow
-pip install crewai pypdf pandas openpyxl pydantic python-dotenv litellm
+pip install -r requirements.txt
 ```
 
 ### Setting up your AI models
