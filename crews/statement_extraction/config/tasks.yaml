@@ -1,0 +1,67 @@
+
+extract_balance_sheet_task:
+  name: extract_balance_sheet_task
+  description: >
+    Extract the Balance Sheet / Statement of Financial Position from this specific text segment:
+    
+    --- START OF STATEMENT ---
+    {balance_sheet_text}
+    --- END OF STATEMENT ---
+    
+    CRITICAL HANDLING INSTRUCTIONS:
+    1. Identify and Skip the "Notes" Column: Financial statements almost always include a 'Note(s)' or 'Reference' column containing footnotes/cross-reference numbers (e.g., 9, 17, 19, 22). You MUST completely ignore this column and its values.
+    2. Do NOT merge Note numbers with financial values: Ensure that note numbers are completely skipped. Do NOT append or prepend a note number to the adjacent numeric data column (e.g., if a row has Note '9' and a value of '1,169,734,682', the extracted value must strictly be '1,169,734,682', NOT '9 1,169,734,682').
+    
+  expected_output: >
+    A structured JSON object matching the SingleStatement schema for the balance sheet.
+    
+
+extract_income_statement_task:
+  name: extract_income_statement_task
+  description: >
+    Extract the Income Statement / Profit or Loss Statement from this specific text segment:
+    
+    --- START OF STATEMENT ---
+    {income_statement_text}
+    --- END OF STATEMENT ---
+    
+    CRITICAL HANDLING INSTRUCTIONS:
+    1. Identify and Skip the "Notes" Column: Financial statements almost always include a 'Note(s)' or 'Reference' column containing footnotes/cross-reference numbers (e.g., 9, 17, 19, 22). You MUST completely ignore this column and its values.
+    2. Do NOT merge Note numbers with financial values: Ensure that note numbers are completely skipped. Do NOT append or prepend a note number to the adjacent numeric data column (e.g., if a row has Note '9' and a value of '1,169,734,682', the extracted value must strictly be '1,169,734,682', NOT '9 1,169,734,682').
+  expected_output: >
+    A structured JSON object matching the SingleStatement schema for the income statement
+  
+  
+extract_cash_flow_task:
+  name: extract_cash_flow_task
+  description: >
+    Extract the Cash Flow Statement from this specific text segment:
+    
+    --- START OF STATEMENT ---
+    {cash_flow_text}
+    --- END OF STATEMENT ---
+    
+    CRITICAL HANDLING INSTRUCTIONS:
+    1. Identify and Skip the "Notes" Column: Financial statements almost always include a 'Note(s)' or 'Reference' column containing footnotes/cross-reference numbers (e.g., 9, 17, 19, 22). You MUST completely ignore this column and its values.
+    2. Do NOT merge Note numbers with financial values: Ensure that note numbers are completely skipped. Do NOT append or prepend a note number to the adjacent numeric data column (e.g., if a row has Note '9' and a value of '1,169,734,682', the extracted value must strictly be '1,169,734,682', NOT '9 1,169,734,682').
+  expected_output: >
+    A structured JSON object matching the SingleStatement schema for the cash flow statement.
+
+
+extract_equity_task:
+  name: extract_equity_task
+  description: >
+    Extract the Changes in Equity Statement from this specific text segment:
+    
+    --- START OF STATEMENT ---
+    {equity_text}
+    --- END OF STATEMENT ---
+    
+    CRITICAL HANDLING INSTRUCTIONS:
+    1. Identify and Skip the "Notes" Column: Financial statements almost always include a 'Note(s)' or 'Reference' column containing footnotes/cross-reference numbers (e.g., 9, 17, 19, 22). You MUST completely ignore this column and its values.
+    2. Do NOT merge Note numbers with financial values: Ensure that note numbers are completely skipped. Do NOT append or prepend a note number to the adjacent numeric data column (e.g., if a row has Note '9' and a value of '1,169,734,682', the extracted value must strictly be '1,169,734,682', NOT '9 1,169,734,682').
+  expected_output: >
+    A structured JSON object matching the SingleStatement schema for the equity changes statement.
+
+
+  

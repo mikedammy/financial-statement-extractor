@@ -1,0 +1,49 @@
+financial_highlights_task:
+  name: financial_highlights_task
+  description: >
+    Analyze the provided financial statement data JSON string:
+    
+    --- START OF DATA ---
+    {statements_json}
+    --- END OF DATA ---
+
+    YOUR GOAL:
+    Calculate the comprehensive list of financial metrics for the MOST RECENT reporting year for the primary entity (prioritize "Group" metrics if both Group and Company are present; otherwise use the main entity). 
+
+    Locate the appropriate column array and calculate the values using these mathematical rules:
+    - Gross Margin: (Gross Profit or Revenue minus Cost of Sales) / Revenue
+    - EBITDA Margin: (Operating Profit + Depreciation + Amortisation) / Revenue
+    - Operating Margin: Operating Profit / Revenue
+    - Pre-Tax Margin: Profit Before Tax / Revenue
+    - Net Profit Margin: Profit for the Year / Revenue
+    - Return on Assets (ROA): Profit for the Year / Total Assets
+    - Return on Equity (ROE): Profit for the Year / Total Equity
+    - Return on Capital Employed (ROCE): Operating Profit / (Total Assets - Total Current Liabilities)
+    - Effective Tax Rate: Income Tax Expense / Profit Before Tax
+    
+    - Current Ratio: Total Current Assets / Total Current Liabilities
+    - Quick Ratio: (Total Current Assets - Inventory) / Total Current Liabilities
+    - Cash Ratio: Cash and Cash Equivalents / Total Current Liabilities
+    - Net Working Capital: Total Current Assets - Total Current Liabilities
+    
+    - Debt to Equity: Total Liabilities / Total Equity
+    - Debt Ratio: Total Liabilities / Total Assets
+    - Equity Multiplier: Total Assets / Total Equity
+    - Interest Coverage: Operating Profit / Finance Costs
+    
+    - Asset Turnover: Revenue / Total Assets
+    - Days Sales Outstanding (DSO): (Accounts Receivable / Revenue) * 365
+    - Days Inventory Outstanding (DIO): (Inventory / Cost of Sales) * 365
+    - Days Payable Outstanding (DPO): (Accounts Payable / Cost of Sales) * 365
+    - Cash Conversion Cycle: DIO + DSO - DPO
+    
+    - Operating Cash Flow: Net Cash generated from operating activities
+    - Free Cash Flow: Operating Cash Flow minus Capital Expenditures
+    - Quality of Earnings: Operating Cash Flow / Profit for the Year
+    - Capital Reinvestment Ratio: Capital Expenditures / Operating Cash Flow
+
+    CRITICAL INSTRUCTION:
+    If any metrics are uncomputable because a row is completely missing from the input JSON, assign them as null (None). Do not estimate, extrapolate, or invent fake values.
+
+  expected_output: >
+    A structured JSON representation matching the output schema fields precisely.

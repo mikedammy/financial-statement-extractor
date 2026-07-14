@@ -1,0 +1,37 @@
+# config/tasks.yaml
+page_detection_task:
+  name: page_detection_task
+  description: >
+    You are given the extracted cover and introductory pages of an annual report.
+    ---
+    {pdf_cover_text}
+    ---
+
+    Your task is to locate the Table of Contents (TOC) within this text and extract the target metadata with high fidelity.
+
+    INSTRUCTIONS:
+    1. Identify the company name and financial year. The company name must be a short name for the company dropping any descriptive parts and not be longer than 20 characters.
+    2. Look closely at the Table of Contents layout. For each of the primary Financial Statements, extract the complete start and end page boundaries. Follow these strict accounting layout guidelines:
+       
+       - INCOME STATEMENT: This must span from the start of the 'Statement of Profit or Loss' all the way through the end of the 'Statement of Other Comprehensive Income' (OCI). Do not clip the OCI page out.
+       
+       - BALANCE SHEET: Capture the pages for the 'Statement of Financial Position'. If 'Group' and 'Company' are presented side-by-side or sequentially, make sure both are enclosed.
+       
+       - CHANGES IN EQUITY: Annual reports frequently list 'Statement of Changes in Equity (Group)' and 'Statement of Changes in Equity (Company)' sequentially. Your range MUST start at the Group table and end at the conclusion of the Company table.
+       
+       - CASH FLOWS: Capture the pages for the 'Statement of Cash Flows' (enclosing both Group and Company pages).
+
+    3. RANGE INFERENCE RULE:
+       If a statement starts on page 18, and the next listed item in the TOC starts on page 21, you must infer that the statement covers pages 18, 19, and 20. Therefore, start_page is 18 and end_page is 20.
+
+    4. Find the first page in the document where the printed body page numbering begins
+      (i.e. the first page displaying the printed page number "1" — typically the first
+      page after any roman-numeral front matter and the Table of Contents itself).
+      Each page in the text is explicitly labeled "--- PHYSICAL PAGE INDEX N ---" where N
+      is zero-indexed. Set first_numbered_page_physical_index to that exact N value from the label
+      directly above that first-numbered-page content — do not subtract or add anything
+      to it, and do not convert it to an ordinal count (i.e. if printed page "1" appears
+      under "--- PHYSICAL PAGE INDEX 3 ---", the anchor is 3, not 4 or 2).
+
+  expected_output: >
+    A JSON object matching the PageDetectionOutput schema fields exactly, ensuring end_page values encompass the full multi-statement scopes detailed above.
