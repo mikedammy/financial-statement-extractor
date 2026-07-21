@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Financial Statement Extractor</title>
+
+    <link rel="stylesheet" type="text/css" href="project-page.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+
+<body>
+
+<div class="project-page-container">
+
+    <!-- PROJECT HEADER -->
+
+    <header class="project-header">
+
+        <h1>AI Financial Statement Extractor</h1>
+
+        <p class="project-subtitle">
+            An AI Agentic workflow that extracts financial statements from annual reports and converts them into structured Excel datasets.
+        </p>
+
+        <div class="project-links">
+          <!--  <a href="sample-usage.html">Sample Usage</a> -->
+            <a href="https://github.com/mikedammy/financial-statement-extractor">GitHub Repository</a>
+            <a href="https://mikedammy.github.io/data-science-portfolio/index.html">Back to Portfolio</a>
+        </div>
+
+    </header>
+
+
+
+    <!-- PROJECT BANNER -->
+
+    <section class="project-banner">
+
+        <div class="image-frame">
+            <img src="workflow.png" alt="Financial Report Extraction Workflow"/>
+        </div>
+
+    </section>
+
+
+
+    <div class="project-layout">
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="project-content">
+
+
+
+            <!-- PROBLEM -->
+
+            <section>
+
+                <h2>Problem Statement</h2>
+
+                <p>
+
+                    Annual reports often exceed one hundred pages, while only a small subset contains the core financial statements required for analysis.
+                    Manually locating these statements and transcribing them into spreadsheets is repetitive, time-consuming, and susceptible to human error.
+
+                </p>
+
+            </section>
+
+
+
+            <!-- SOLUTION -->
+
+            <section>
+
+                <h2>Solution</h2>
+
+                <p>
+
+                    This project implements an AI Agentic workflow using CrewAI to automatically locate financial statements within annual report PDFs,
+                    extract their contents, calculate financial highlights, and generate a professionally formatted Excel workbook.
+
+                </p>
+
+            </section>
+
+
+
+            <!-- WORKFLOW -->
+
+            <section>
+
+                <h2>Workflow</h2>
+
+                <p>
+
+                    The pipeline begins by identifying the pages containing the Statement of Financial Position,
+                    Statement of Profit or Loss,
+                    Statement of Cash Flows,
+                    and Statement of Changes in Equity.
+
+                    These pages are extracted into a separate PDF before AI agents convert each statement into structured JSON.
+                    A final stage computes financial highlights and exports everything into an Excel workbook.
+
+                </p>
+
+            </section>
+
+
+
+            <!-- FEATURES -->
+
+            <section>
+
+                <h2>Key Features</h2>
+
+                <p>
+
+                    • Automatic financial statement page detection.<br>
+
+                    • Hybrid PDF text extraction.<br>
+
+                    • AI-powered table extraction.<br>
+
+                    • Financial highlights generation.<br>
+
+                    • Multi-sheet formatted Excel export.<br>
+
+                    • Modular CrewAI Flow architecture with deterministic Python utilities.
+
+                </p>
+
+            </section>
+
+
+
+            <!-- RESULTS -->
+
+            <section>
+
+                <h2>Results</h2>
+
+                <p>
+
+                    The workflow was evaluated using annual reports from four publicly listed companies.
+                    Across all test cases, the system correctly identified the financial statement pages and accurately extracted the reported figures into structured outputs.
+
+                </p>
+
+                <div class="chart-container">
+
+                    <div class="image-frame">
+                        <img src="excel_output.png" alt="Generated Excel Workbook"/>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- CHALLENGES -->
+
+            <section>
+
+                <h2>Challenges & Limitations</h2>
+
+                <p>
+
+                    Financial reports vary significantly in formatting, page layouts, terminology, and table structures.
+                    The workflow is designed to handle a wide range of report styles, although extremely unconventional layouts may still require further prompt engineering or workflow refinement.
+
+                </p>
+
+            </section>
+
+
+
+        </main>
+
+
+
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="project-sidebar">
+
+
+
+            <div class="tech-stack">
+
+                <h3>Tech Stack</h3>
+
+                <ul>
+
+                    <li>Python</li>
+                    <li>CrewAI</li>
+                    <li>LiteLLM</li>
+                    <li>Gemini 2.5 Flash</li>
+                    <li>Groq LLMs</li>
+                    <li>Pydantic</li>
+                    <li>Pandas</li>
+                    <li>OpenPyXL</li>
+                    <li>PyMuPDF</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="metrics">
+
+                <h3>Project Summary</h3>
+
+                <div class="metrics-grid">
+
+                    <div>
+                        <strong>Documents</strong>
+                        <p>Annual Reports</p>
+                    </div>
+
+                    <div>
+                        <strong>Workflow</strong>
+                        <p>AI Agentic</p>
+                    </div>
+
+                    <div>
+                        <strong>Validation</strong>
+                        <p>4 Companies</p>
+                    </div>
+
+                    <div>
+                        <strong>Output</strong>
+                        <p>Excel Workbook</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </aside>
+
+
+
+    </div>
+
+
+
+</div>
+
+</body>
+
+</html>
