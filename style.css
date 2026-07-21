@@ -1,4 +1,7 @@
-/* 1. Global Reset & Setup */
+/* =========================
+   1. Global Reset & Base
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,21 +10,24 @@
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f4f6f9; /* Soft cool background */
+    background-color: #f4f6f9;
     color: #333333;
     line-height: 1.6;
     padding: 20px;
 }
 
-/* Container to center your content gracefully on wide screens */
-.main-container {
-    max-width: 900px;
+/* Center container */
+.project-page-container {
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* 2. Header / Hero Section */
-header {
-    background-color: #1e293b; /* Deep slate blue/grey */
+/* =========================
+   2. Project Header
+========================= */
+
+.project-header {
+    background-color: #1e293b;
     color: #ffffff;
     text-align: center;
     padding: 40px 20px;
@@ -29,171 +35,238 @@ header {
     margin-bottom: 24px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 1px;
+.project-header h1 {
+    font-size: 2.3rem;
     margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
-header #subtitle {
-    font-size: 1.1rem;
-    color: #94a3b8;
-    margin-bottom: 15px;
-}
-
-header #interests {
-    font-size: 0.95rem;
+.project-subtitle {
+    font-size: 1rem;
     color: #cbd5e1;
-    max-width: 600px;
-    margin: 0 auto 25px auto;
+    max-width: 650px;
+    margin: 0 auto 20px auto;
 }
 
-header #cta {
-    margin-top: 20px;
-}
-
-header a {
+/* Links */
+.project-links a {
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #ffffff;
-    background-color: #0284c7; /* Sharp blue/teal accent */
-    padding: 10px 20px;
+    background-color: #0284c7;
+    padding: 10px 16px;
     border-radius: 6px;
-    margin: 0 8px;
-    transition: all 0.3s ease;
+    margin: 0 6px;
     display: inline-block;
+    transition: 0.3s ease;
 }
 
-header a:hover {
+.project-links a:hover {
     background-color: #ffffff;
     color: #0284c7;
     transform: translateY(-2px);
 }
 
-/* 3. Common Section Styling */
-#about, #skills, #project-div {
+/* =========================
+   3. Banner Section
+========================= */
+
+.project-banner {
     background-color: #ffffff;
-    padding: 30px;
     border-radius: 12px;
+    padding: 25px;
     margin-bottom: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
-h2 {
-    color: #1e293b;
-    margin-bottom: 15px;
-    position: relative;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e2e8f0;
+.banner-placeholder {
+    height: 220px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 4. About & Learning Badges */
-#about h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #64748b;
+.banner-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
-/* Turning those disabled buttons into sleek static tags */
-#about button, .stack-btn {
-    border: none;
-    border-radius: 20px;
-    padding: 6px 14px;
-    margin: 4px 4px;
-    background-color: #f1f5f9;
-    color: #475569;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: default;
-}
-
-/* 5. Skills Stack Section */
-.stack-div {
-    margin-bottom: 20px;
-}
-
-.stack-div h3 {
-    font-size: 1.1rem;
-    color: #475569;
-    margin-bottom: 10px;
-}
-
-.stack-btn {
-    background-color: #e0f2fe;
-    color: #0369a1; /* Blue theme for skills */
-}
-
-/* 6. Projects Section */
-#project-div h2 {
-    text-align: left;
-}
-
-.project-container {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+.image-frame {
+    width: 100%;
+    height: 320px;              /* critical: controls chaos */
     background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
 }
 
-.project-container h3 {
-    color: #1e293b;
-    margin-bottom: 10px;
+
+.image-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;  /* prevents cropping + overflow */
+    display: block;
 }
 
-.project-container ul {
-    margin-left: 20px;
-    margin-bottom: 15px;
-    color: #475569;
-}
-
-.project-container li {
-    margin-bottom: 8px;
-}
-
-.project-container p {
-    text-align: left;
+.chart-container {
     margin-top: 15px;
 }
 
-.project-container a {
-    text-decoration: none;
+/* =========================
+   4. Layout (Content + Sidebar)
+========================= */
+
+.project-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* MAIN CONTENT */
+.project-content {
+    flex: 2;
+}
+
+/* SIDEBAR */
+.project-sidebar {
+    flex: 1;
+}
+
+/* =========================
+   5. Content Sections
+========================= */
+
+.project-content section {
     background-color: #ffffff;
-    color: #0284c7;
-    border: 1px solid #0284c7;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 6px;
-    margin-right: 10px;
-    transition: all 0.2s ease;
-    display: inline-block;
-}
-
-.project-container a:hover {
-    background-color: #0284c7;
-    color: #ffffff;
-}
-
-/* 7. Footer */
-footer {
-    background-color: #1e293b;
-    color: #94a3b8;
-    padding: 30px;
+    padding: 25px;
     border-radius: 12px;
-    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.project-content h2 {
+    color: #1e293b;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.project-content p {
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* =========================
+   6. Charts / Visuals
+========================= */
+
+.chart-placeholder {
+    margin-top: 15px;
+    height: 200px;
+    background-color: #f1f5f9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
     font-size: 14px;
+    border: 1px dashed #cbd5e1;
 }
 
-footer a {
-    color: #cbd5e1;
-    text-decoration: none;
-    margin: 0 5px;
+/* =========================
+   7. Sidebar
+========================= */
+
+.project-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-footer a:hover {
-    color: #ffffff;
-    text-decoration: underline;
+.project-sidebar > div {
+    width: 100%;
+}
+
+/* Tech Stack + Metrics cards */
+.tech-stack,
+.metrics {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tech-stack h3,
+.metrics h3 {
+    color: #1e293b;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 5px;
+}
+
+.tech-stack ul {
+    list-style: none;
+}
+
+.tech-stack li {
+    padding: 6px 0;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* Metric styling */
+.metrics {
+    display: flex;
+    flex-direction: column;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.metrics-grid div {
+    background-color: #f1f5f9;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* =========================
+   8. Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+
+    .project-layout {
+        flex-direction: column;
+    }
+
+    .project-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-links a {
+        margin: 6px 4px;
+        display: inline-block;
+    }
+
+    .banner-placeholder {
+        height: 160px;
+    }
 }
