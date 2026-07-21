@@ -75,9 +75,15 @@ body {
 .project-banner {
     background-color: #ffffff;
     border-radius: 12px;
-    padding: 25px;
+    padding: 15px; /* Reduced padding */
     margin-bottom: 24px;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+/* Then style the image frame inside banner separately if needed */
+.project-banner .image-frame {
+    max-height: 180px; /* Smaller for banner */
+    min-height: 80px;
 }
 
 .banner-placeholder {
@@ -99,8 +105,6 @@ body {
 }
 
 .image-frame {
-    width: 100%;
-    height: 320px;              /* critical: controls chaos */
     background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
